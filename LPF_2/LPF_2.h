@@ -1,43 +1,40 @@
-#ifndef FILTER_LPF_2
-#define FILTER_LPF_2
+#ifndef FILTER_LPF_2_
+#define FILTER_LPF_2_
 
-#include "Constants.h"
-#include <stdint.h>
+class EcSsiLowPassFilter_2
+{
+   public:
+      EcSsiLowPassFilter_2(double dt_);
+      void init(double fc_, double dt_);
+      void set_param(double fc_, double dt_);
+      void set_fc(double fc_);
+      void set_dt(double dt_);
+      void enable_filt();
+      void disable_filt();
+      double get_fc();
+      double get_dt();
+      double get_fs();
+      double update(double x_k);
+      void reset();
 
-class LPF_2{
-	public:
-		LPF_2();
+   private:
+      double fc = 0.0;
+      double dt = 0.0;
 
-		void set_param(float fc_, float Q_, float dt_);
-		void get_param(float* fc_, float* Q_, float* dt_);
+      double lambda_1 = 0.0;
+      double lambda_2 = 0.0;
+      double lambda_3 = 0.0;
+      double lambda_4 = 0.0;
+      double lambda_5 = 0.0;
 
-		void set_fc(float fc_);
-		void set_Q(float Q_);
-		void set_dt(float dt_);
+      double y_k_1 = 0.0;
+      double y_k_2 = 0.0;
 
-		float get_fc();
-		float get_Q();
-		float get_dt();
+      double x_k_1 = 0.0;
+      double x_k_2 = 0.0;
 
-		float get_y();
-
-		float update(float x_i);
-		void reset();
-
-	private:
-        float dt = 0.0;
-		float fc = 0.0;
-        float wc = 0.0;
-		float Q = 0.0;
-        float K0 = 0.0;
-        float K1 = 0.0;
-        float K2 = 0.0;
-        float K3 = 0.0;
-
-		float y_i_2 = 0.0;
-		float y_i_1 = 0.0;
-		float y_i = 0.0;
-		uint8_t start = 0;
+      uint8_t start_counter = 0;
+      bool enable_flag = false;
 };
 
 #endif
