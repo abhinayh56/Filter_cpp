@@ -3,7 +3,7 @@ EcSsiLowPassFilter_2::EcSsiLowPassFilter_2(double dt_)
    dt = dt_;
    fc = 0.5 / dt;
    enable_flag = false;
-   start_counter = 0;
+   reset();
 }
 
 void EcSsiLowPassFilter_2::init(double fc_, double dt_)
@@ -43,13 +43,13 @@ void EcSsiLowPassFilter_2::set_dt(double dt_)
 void EcSsiLowPassFilter_2::enable_filt()
 {
    enable_flag = true;
-   start_counter = 0;
+   reset();
 }
 
 void EcSsiLowPassFilter_2::disable_filt()
 {
    enable_flag = false;
-   start_counter = 0;
+   reset();
 }
 
 double EcSsiLowPassFilter_2::get_fc()
@@ -73,6 +73,7 @@ double EcSsiLowPassFilter_2::update(double x_k)
    if (enable_flag == false)
    {
       y_k = x_k;
+      reset();
    }
    else{
       if (start_counter <= 1)

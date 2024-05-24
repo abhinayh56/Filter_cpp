@@ -6,33 +6,31 @@
 class LPF_1{
 	public:
 		LPF_1();
-
-		void set_param(float fc_, float dt_);
-		void get_param(float* fc_, float* dt_);
-
-		void set_fc(float fc_);
-		void set_tau(float tau_);
-		void set_dt(float dt_);
-		void set_alpha(float alpha_);
-
-		float get_fc();
-		float get_tau();
-		float get_dt();
-		float get_alpha();
-
-		float get_y();
-
-		float update(float x_i);
+		void init(double fc_, double dt_);
+		void set_param(double fc_, double dt_);
+		double update(double x_i);
 		void reset();
 
-	private:
-		float fc = 0.0;
-		float tau = 0.0;
-		float dt = 0.0;
-		float alpha = 0.0;
+		void set_fc(double fc_);
+		void set_tau(double tau_);
+		void set_dt(double dt_);
+		void set_alpha(double alpha_);
 
-		float y_i_1 = 0.0;
-		float y_i = 0.0;
+		double get_fc();
+		double get_tau();
+		double get_dt();
+		double get_alpha();
+
+		double get_y();
+
+	private:
+		double fc = 0.0;
+		double tau = 0.0;
+		double dt = 0.0;
+		double alpha = 0.0;
+
+		double y_i_1 = 0.0;
+		double y_i = 0.0;
 		bool start = true;
 };
 

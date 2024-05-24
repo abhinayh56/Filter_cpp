@@ -5,7 +5,6 @@ class Filter_name{
         void set_param();
         double update();
         void reset();
-        void merge();
 
         void set_param_1();
         void set_param_2();
