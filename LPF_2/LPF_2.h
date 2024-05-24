@@ -1,21 +1,22 @@
 #ifndef FILTER_LPF_2_
 #define FILTER_LPF_2_
 
-class EcSsiLowPassFilter_2
+#include "Constants.h"
+
+class LPF_2
 {
    public:
-      EcSsiLowPassFilter_2(double dt_);
+      LPF_2();
       void init(double fc_, double dt_);
       void set_param(double fc_, double dt_);
+      double update(double x_k);
+      void reset();
+
       void set_fc(double fc_);
       void set_dt(double dt_);
-      void enable_filt();
-      void disable_filt();
       double get_fc();
       double get_dt();
       double get_fs();
-      double update(double x_k);
-      void reset();
 
    private:
       double fc = 0.0;
@@ -34,7 +35,6 @@ class EcSsiLowPassFilter_2
       double x_k_2 = 0.0;
 
       uint8_t start_counter = 0;
-      bool enable_flag = false;
 };
 
 #endif
