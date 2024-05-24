@@ -8,7 +8,7 @@ class HPF_1{
 		HPF_1();
 		void init(double fc_, double dt_);
 		void set_param(float fc_, float dt_);
-		float update(float x_i);
+		float update(float x_k);
 		void reset();
 
 		void set_fc(float fc_);
@@ -28,9 +28,9 @@ class HPF_1{
 		float dt = 0.0;
 		float alpha = 0.0;
 
-		float x_i_1 = 0.0;
-		float y_i_1 = 0.0;
-		float y_i = 0.0;
+		float x_k_1 = 0.0;
+		float y_k_1 = 0.0;
+		float y_k = 0.0;
 		bool start = true;
 };
 

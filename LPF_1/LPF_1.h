@@ -8,7 +8,7 @@ class LPF_1{
 		LPF_1();
 		void init(double fc_, double dt_);
 		void set_param(double fc_, double dt_);
-		double update(double x_i);
+		double update(double x_k);
 		void reset();
 
 		void set_fc(double fc_);
@@ -29,8 +29,8 @@ class LPF_1{
 		double dt = 0.0;
 		double alpha = 0.0;
 
-		double y_i_1 = 0.0;
-		double y_i = 0.0;
+		double y_k_1 = 0.0;
+		double y_k = 0.0;
 		bool start = true;
 };
 

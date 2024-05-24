@@ -16,21 +16,21 @@ void LPF_1::set_param(float fc_, float dt_){
 	alpha = dt / (dt + tau);
 }
 
-float LPF_1::update(float x_i){
+float LPF_1::update(float x_k){
 	if(start==true){
 		start = false;
-		y_i = x_i;
+		y_k = x_k;
 	}
 	else{
-		y_i = alpha*x_i + (1.0 - alpha)*y_i_1;
+		y_k = alpha*x_k + (1.0 - alpha)*y_k_1;
 	}
-	y_i_1 = y_i;
-	return y_i;
+	y_k_1 = y_k;
+	return y_k;
 }
 
 void LPF_1::reset(){
-	y_i_1 = 0.0;
-	y_i = 0.0;
+	y_k_1 = 0.0;
+	y_k = 0.0;
 	start = true;
 }
 
@@ -75,5 +75,5 @@ float LPF_1::get_alpha(){
 }
 
 float LPF_1::get_y(){
-	return y_i;
+	return y_k;
 }
