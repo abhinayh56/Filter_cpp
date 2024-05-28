@@ -18,6 +18,8 @@ void SRL::set_param(double dt_, double dx_dt_max_){
 
 double SRL::update(double x_k){
     if(start==true){
+        double y_k = 0.0;
+        
         start = false;
         y_k = x_k;
     }

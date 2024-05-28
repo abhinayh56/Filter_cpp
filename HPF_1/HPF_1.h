@@ -20,7 +20,6 @@ class HPF_1{
 		float get_tau();
 		float get_dt();
 		float get_alpha();
-		float get_y();
 
 	private:
 		float fc = 0.0;
@@ -30,7 +29,6 @@ class HPF_1{
 
 		float x_k_1 = 0.0;
 		float y_k_1 = 0.0;
-		float y_k = 0.0;
 		bool start = true;
 };
 

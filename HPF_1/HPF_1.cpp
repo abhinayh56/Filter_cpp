@@ -18,6 +18,8 @@ void HPF_1::set_param(float fc_, float dt_){
 }
 
 float HPF_1::update(float x_k){
+	double y_k = 0.0;
+	
 	if(start==true){
 		start = false;
 		y_k = x_k;
@@ -34,7 +36,6 @@ float HPF_1::update(float x_k){
 void HPF_1::reset(){
 	x_k_1 = 0.0;
 	y_k_1 = 0.0;
-	y_k = 0.0;
 	start = true;
 }
 
@@ -72,8 +73,4 @@ float HPF_1::get_dt(){
 
 float HPF_1::get_alpha(){
 	return alpha;
-}
-
-float HPF_1::get_y(){
-	return y_k;
 }

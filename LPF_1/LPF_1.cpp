@@ -17,6 +17,8 @@ void LPF_1::set_param(float fc_, float dt_){
 }
 
 float LPF_1::update(float x_k){
+	double y_k = 0.0;
+	
 	if(start==true){
 		start = false;
 		y_k = x_k;
@@ -30,7 +32,6 @@ float LPF_1::update(float x_k){
 
 void LPF_1::reset(){
 	y_k_1 = 0.0;
-	y_k = 0.0;
 	start = true;
 }
 
@@ -68,8 +69,4 @@ float LPF_1::get_dt(){
 
 float LPF_1::get_alpha(){
 	return alpha;
-}
-
-float LPF_1::get_y(){
-	return y_k;
 }

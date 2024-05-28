@@ -21,8 +21,6 @@ class LPF_1{
 		double get_dt();
 		double get_alpha();
 
-		double get_y();
-
 	private:
 		double fc = 0.0;
 		double tau = 0.0;
@@ -30,7 +28,6 @@ class LPF_1{
 		double alpha = 0.0;
 
 		double y_k_1 = 0.0;
-		double y_k = 0.0;
 		bool start = true;
 };
 
