@@ -56,7 +56,3 @@ double SRL::get_dt(){
 double SRL::get_dx_dt_max(){
     return dx_dt_max;
 }
-
-double SRL::get_y(){
-    return y_k;
-}
