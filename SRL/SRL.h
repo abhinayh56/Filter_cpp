@@ -1,9 +1,9 @@
-#ifndef FILTER_SRF
-#define FILTER_SRF
+#ifndef FILTER_SRL
+#define FILTER_SRL
 
 #include "Math_functions.h"
 
-class SRF{
+class SRL{
     public:
         SRLF();
         void init(double dt_, double dx_dt_max_);

@@ -1,22 +1,22 @@
-#include "SRF.h"
+#include "SRL.h"
 
-SRF::SRF(){
+SRL::SRL(){
     double dt = 0;
     double dx_dt_max = 0;
     double y_k_1 = 0;
     bool start = false;
 }
 
-void SRF::init(double dt_, double dx_dt_max_){
+void SRL::init(double dt_, double dx_dt_max_){
     set_param(dt_, dx_dt_max_);
 }
 
-void SRF::set_param(double dt_, double dx_dt_max_){
+void SRL::set_param(double dt_, double dx_dt_max_){
     dt = dt_;
     dx_dt_max = dx_dt_max_;
 }
 
-double SRF::update(double x_k){
+double SRL::update(double x_k){
     if(start==true){
         start = false;
         y_k = x_k;
@@ -35,28 +35,28 @@ double SRF::update(double x_k){
     return y_k;
 }
 
-void SRF::reset(){
+void SRL::reset(){
     double y_k = 0.0;
     double y_k_1 = 0;
     bool start = true;
 }
 
-void SRF::set_dt(double dt_){
+void SRL::set_dt(double dt_){
     dt = dt_;
 }
 
-void SRF::set_dx_dt_max(double dx_dt_max_){
+void SRL::set_dx_dt_max(double dx_dt_max_){
     dx_dt_max = dx_dt_max_;
 }
 
-double SRF::get_dt(){
+double SRL::get_dt(){
     return dt;
 }
 
-double SRF::get_dx_dt_max(){
+double SRL::get_dx_dt_max(){
     return dx_dt_max;
 }
 
-double SRF::get_y(){
+double SRL::get_y(){
     return y_k;
 }
