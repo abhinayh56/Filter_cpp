@@ -39,9 +39,7 @@ void HPF_1::reset(){
 }
 
 void HPF_1::set_fc(float fc_){
-	fc = fc_;
-	tau = 1.0 / (2.0*math_pi*fc);
-	alpha = tau / (dt + tau);
+	set_param(fc_, dt);
 }
 
 void HPF_1::set_tau(float tau_){
@@ -51,8 +49,7 @@ void HPF_1::set_tau(float tau_){
 }
 
 void HPF_1::set_dt(float dt_){
-	dt = dt_;
-	alpha = tau / (dt + tau);
+	set_param(fc, dt_);
 }
 
 void HPF_1::set_alpha(float alpha_){

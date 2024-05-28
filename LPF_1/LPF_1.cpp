@@ -35,10 +35,7 @@ void LPF_1::reset(){
 }
 
 void LPF_1::set_fc(float fc_){
-	fc = fc_;
-
-	tau = 1.0 / (2.0*math_pi*fc);
-	alpha = dt / (dt + tau);
+	set_param(float fc_, float dt);
 }
 
 void LPF_1::set_tau(float tau_){
@@ -48,8 +45,7 @@ void LPF_1::set_tau(float tau_){
 }
 
 void LPF_1::set_dt(float dt_){
-	dt = dt_;
-	alpha = dt / (dt + tau);
+	set_param(float fc, float dt_);
 }
 
 void LPF_1::set_alpha(float alpha_){
