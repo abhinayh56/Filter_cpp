@@ -15,9 +15,9 @@ void LPF_2::set_param(double fc_, double dt_){
    double b0 = dt*dt*wc*wc;
    double b1 = 2.0*b0;
    double b2 = b0;
-   double a0 = b0 + 2 * sqrt(2)*dt*wc + 4.0;
+   double a0 = b0 + 2.0*sqrt(2.0)*dt*wc + 4.0;
    double a1 = b1 - 8.0;
-   double a2 = b0 - 2 * sqrt(2)*dt*wc + 4.0;
+   double a2 = b0 - 2*sqrt(2.0)*dt*wc + 4.0;
 
    lambda_1 = b0 / a0;
    lambda_2 = b1 / a0;

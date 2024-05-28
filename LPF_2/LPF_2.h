@@ -1,5 +1,5 @@
-#ifndef FILTER_LPF_2_
-#define FILTER_LPF_2_
+#ifndef FILTER_LPF_2_H
+#define FILTER_LPF_2_H
 
 #include "Constants.h"
 
