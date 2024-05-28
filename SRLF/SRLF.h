@@ -6,21 +6,26 @@
 class SRLF{
     public:
         SRLF();
-        void set_param(float dt_, float dx_dt_max_);
-        void set_dt(float dt_);
-        void set_dx_dt_max(float dx_dt_max_);
-        float get_dt();
-        float get_dx_dt_max();
-        float get_y();
-        float update(float x_i);
+        void init(double dt_, double dx_dt_max_);
+        void set_param(double dt_, double dx_dt_max_);
+        double update(double x_k);
         void reset();
+
+        void set_dt(double dt_);
+        void set_dx_dt_max(double dx_dt_max_);
+        double get_dt();
+        double get_dx_dt_max();
+        double get_y();
 
     private:
         Math_functions math_fun;
-        float dt        = 0;
-        float dx_dt_max = 0;
-        float y_i       = 0.0;
-        float y_i_1     = 0;
+
+        double dt        = 0;
+        double dx_dt_max = 0;
+
+        double y_k       = 0.0;
+        double y_k_1     = 0;
+
         bool start      = true;
 };
 
