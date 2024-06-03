@@ -12,12 +12,12 @@ void BSF_2::set_param(double fc_, double dt_){
    fc = fc_;
    dt = dt_;
    double wc = math_2pi*fc;
-   double b0 = 4.0 + wc*wc*dt*dt;
+   double b0 = 4.0 + wc*dt*dt;
    double b1 = 2.0*b0 - 16.0;
    double b2 = b0;
-   double a0 = dt*dt*wc*wc + sqrt(2.0)*dt*dt*wc + 4.0;
-   double a1 = 2.0*dt*dt*wc*wc - 8.0;
-   double a2 = dt*dt*wc*wc - sqrt(2.0)*dt*dt*wc + 4.0;
+   double a0 = dt*dt*wc + 2.0*sqrt(2.0)*dt*wc + 4.0;
+   double a1 = b1;
+   double a2 = dt*dt*wc - 2.0*sqrt(2.0)*dt*wc + 4.0;
 
    lambda_1 = b0 / a0;
    lambda_2 = b1 / a0;
