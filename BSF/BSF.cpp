@@ -4,14 +4,14 @@ BSF_2::BSF_2(){
    reset();
 }
 
-void BSF_2::init(double fc_, double dt_){
-   set_param(fc_, dt_);
+void BSF_2::init(double f0_, double dt_){
+   set_param(f0_, dt_);
 }
 
-void BSF_2::set_param(double fc_, double dt_){
-   fc = fc_;
+void BSF_2::set_param(double f0_, double dt_){
+   f0 = f0_;
    dt = dt_;
-   double wc = math_2pi*fc;
+   double wc = math_2pi*f0;
    double b0 = 4.0 + wc*wc*dt*dt;
    double b1 = 2.0*b0 - 16.0;
    double b2 = b0;
@@ -50,16 +50,16 @@ void BSF_2::reset(){
    start_counter = 0;
 }
 
-void BSF_2::set_fc(double fc_){
-   set_param(fc_, dt);
+void BSF_2::set_f0(double f0_){
+   set_param(f0_, dt);
 }
 
 void BSF_2::set_dt(double dt_){
-   set_param(fc, dt_);
+   set_param(f0, dt_);
 }
 
-double BSF_2::get_fc(){
-   return fc;
+double BSF_2::get_f0(){
+   return f0;
 }
 
 double BSF_2::get_dt(){
