@@ -4,19 +4,19 @@ LPF_1::LPF_1(){
 	start = true;
 }
 
-void LPF_1::init(float fc_, float dt_){
+void LPF_1::init(double fc_, double dt_){
 	set_param(fc_, dt_);
 	start = true;
 }
 
-void LPF_1::set_param(float fc_, float dt_){
+void LPF_1::set_param(double fc_, double dt_){
 	fc = fc_;
 	dt = dt_;
 	tau = 1.0 / (2.0*math_pi*fc);
 	alpha = dt / (dt + tau);
 }
 
-float LPF_1::update(float x_k){
+double LPF_1::update(double x_k){
 	double y_k = 0.0;
 	
 	if(start==true){
@@ -35,38 +35,38 @@ void LPF_1::reset(){
 	start = true;
 }
 
-void LPF_1::set_fc(float fc_){
-	set_param(float fc_, float dt);
+void LPF_1::set_fc(double fc_){
+	set_param(double fc_, double dt);
 }
 
-void LPF_1::set_tau(float tau_){
+void LPF_1::set_tau(double tau_){
 	tau = tau_;
 	fc = 1.0 / (2.0*math_pi*tau);
 	alpha = dt / (dt + tau);
 }
 
-void LPF_1::set_dt(float dt_){
-	set_param(float fc, float dt_);
+void LPF_1::set_dt(double dt_){
+	set_param(double fc, double dt_);
 }
 
-void LPF_1::set_alpha(float alpha_){
+void LPF_1::set_alpha(double alpha_){
 	alpha = alpha_;
 	tau = ((1.0 - alpha)*dt) / alpha;
 	fc = 1.0 / (2.0*math_pi*tau);
 }
 
-float LPF_1::get_fc(){
+double LPF_1::get_fc(){
 	return fc;
 }
 
-float LPF_1::get_tau(){
+double LPF_1::get_tau(){
 	return tau;
 }
 
-float LPF_1::get_dt(){
+double LPF_1::get_dt(){
 	return dt;
 }
 
-float LPF_1::get_alpha(){
+double LPF_1::get_alpha(){
 	return alpha;
 }

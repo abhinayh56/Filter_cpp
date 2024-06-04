@@ -4,12 +4,12 @@ HPF_1::HPF_1(){
 	start = true;
 }
 
-void HPF_1::init(float fc_, float dt_){
+void HPF_1::init(double fc_, double dt_){
 	set_param(fc_, dt_);
 	start = true;
 }
 
-void HPF_1::set_param(float fc_, float dt_){
+void HPF_1::set_param(double fc_, double dt_){
 	fc = fc_;
 	dt = dt_;
 
@@ -17,7 +17,7 @@ void HPF_1::set_param(float fc_, float dt_){
 	alpha = tau / (dt + tau);
 }
 
-float HPF_1::update(float x_k){
+double HPF_1::update(double x_k){
 	double y_k = 0.0;
 	
 	if(start==true){
@@ -39,38 +39,38 @@ void HPF_1::reset(){
 	start = true;
 }
 
-void HPF_1::set_fc(float fc_){
+void HPF_1::set_fc(double fc_){
 	set_param(fc_, dt);
 }
 
-void HPF_1::set_tau(float tau_){
+void HPF_1::set_tau(double tau_){
 	tau = tau_;
 	fc = 1.0 / (2.0*math_pi*tau);
 	alpha = tau / (dt + tau);
 }
 
-void HPF_1::set_dt(float dt_){
+void HPF_1::set_dt(double dt_){
 	set_param(fc, dt_);
 }
 
-void HPF_1::set_alpha(float alpha_){
+void HPF_1::set_alpha(double alpha_){
 	alpha = alpha_;
 	tau = (alpha/(1.0 - alpha)) * dt;
 	fc = 1.0 / (2.0*math_pi*tau);
 }
 
-float HPF_1::get_fc(){
+double HPF_1::get_fc(){
 	return fc;
 }
 
-float HPF_1::get_tau(){
+double HPF_1::get_tau(){
 	return tau;
 }
 
-float HPF_1::get_dt(){
+double HPF_1::get_dt(){
 	return dt;
 }
 
-float HPF_1::get_alpha(){
+double HPF_1::get_alpha(){
 	return alpha;
 }
